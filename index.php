@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <label for="informations">Informações</label>
-                    <textarea class="form-control" id="informations" rows="3"></textarea>
+                    <textarea class="form-control" name="info" id="informations" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
