@@ -16,3 +16,4 @@ if(!function_exists('selectAllData')) {
     return $all;
     }
 }
+?>
