@@ -10,18 +10,18 @@
     </head>
     <body>
         <div class="container">
-            <form>
+            <form method="get" action="gravar.php" class="formulario">
                 <div class="form-group">
                     <label for="name">Nome Completo</label>
-                    <input type="text" class="form-control" id="name" placeholder="Nome e Sobrenome">
+                    <input type="text" class="form-control" name="nome" id="name" placeholder="Nome e Sobrenome">
                 </div>
                 <div class="form-group">
                     <label for="email">Endereço de E-mail</label>
-                    <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu e-mail">
                 </div>
                 <div class="form-group">
                     <label for="phone">Telefone</label>
-                    <input type="text" class="form-control" id="phone" placeholder="(XX) XXXXX-XXXX">
+                    <input type="text" class="form-control" name="phone" id="phone" placeholder="(XX) XXXXX-XXXX">
                 </div>
                 <div class="form-group">
                     <label for="city">Cidade</label>
