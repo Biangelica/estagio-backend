@@ -37,5 +37,3 @@ $arqexcel .= "<table class='table'>
                header("Content-Disposition:attachment; filename = relatorio.xls");
                echo $arqexcel;
         
-       
-
