@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="pt-br">
     <head>
@@ -24,18 +25,19 @@
                     <input type="text" class="form-control" name="phone" id="phone" placeholder="(XX) XXXXX-XXXX">
                 </div>
                 <div class="form-group">
-                    <label for="city">Cidade</label>            
+                    <label for="city">Cidade</label>
                         <option>Selecione a cidade</option>
-                        <?php
-                            include("Conexao.php");
-                            $sql=mysqli_query(abrirBanco(), "SELECT id, nomeCidade FROM cidades;");?> 
-                            <select class="form-control" id="city" name="city">
-                             <option>Selecione a cidade</option>
+                         <!-- Popula o Select com os valores do Banco-->
+                    <?php
+                    include("Conexao.php");
+                    $sql=mysqli_query(abrirBanco(), "SELECT id, nomeCidade FROM cidades;");?> 
+                    <select class="form-control" id="city" name="city">
+                        <option>Selecione a cidade</option>
                        <?php
-                            $resultado = mysqli_query(abrirBanco(), $sql);
+                        $resultado = mysqli_query(abrirBanco(), $sql);
                             while($linha = mysqli_fetch_array($sql)){ ?>     
                             <option value=" <?php echo $linha['id']; ?> "> <?php echo $linha['nomeCidade']; ?> </option>
-                         <?php } ?>                    
+                    <?php } ?>                    
                    </select>
                 </div>
                 <div class="form-group">
