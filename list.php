@@ -11,7 +11,8 @@
     <body>
         <div class="container">
             <span class="align-text-top">
-                <button type="button" class="btn btn-primary">Download CSV</button>
+               <a href="gerarCSV.php"><button type="button"  class="btn btn-primary">Download CSV</button></a>
+               
             </span>
             <table class="table">
                 <thead>
@@ -25,8 +26,9 @@
                 </thead>
                 <tbody>
                  <?php
+                /* Aqui foi onde mudou */
                     include ("Conexao.php");
-                    $seleciona=mysqli_query(abrirBanco(), "SELECT con.*, cid.nomeCidade, cid.uf  FROM contato con INNER JOIN cidades cid on con.cidade = cid.id ORDER BY nomeCidade ");
+                    $seleciona=mysqli_query(abrirBanco(), "select con.*, cid.nomeCidade, cid.uf  from contato con inner join cidades cid on con.cidade = cid.id order by nomeCidade ");
                     while($campo=mysqli_fetch_array($seleciona)){?>                  
                         <tr>
                             <td> <?=$campo["id"]?></td>
