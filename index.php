@@ -24,10 +24,19 @@
                     <input type="text" class="form-control" name="phone" id="phone" placeholder="(XX) XXXXX-XXXX">
                 </div>
                 <div class="form-group">
-                    <label for="city">Cidade</label>
-                    <select class="form-control" id="city">
+                    <label for="city">Cidade</label>            
                         <option>Selecione a cidade</option>
-                    </select>
+                        <?php
+                            include("Conexao.php");
+                            $sql=mysqli_query(abrirBanco(), "SELECT id, nomeCidade FROM cidades;");?> 
+                            <select class="form-control" id="city" name="city">
+                             <option>Selecione a cidade</option>
+                       <?php
+                            $resultado = mysqli_query(abrirBanco(), $sql);
+                            while($linha = mysqli_fetch_array($sql)){ ?>     
+                            <option value=" <?php echo $linha['id']; ?> "> <?php echo $linha['nomeCidade']; ?> </option>
+                         <?php } ?>                    
+                   </select>
                 </div>
                 <div class="form-group">
                     <label for="informations">Informações</label>
