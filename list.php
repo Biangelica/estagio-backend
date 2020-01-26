@@ -26,13 +26,15 @@
                 <tbody>
                  <?php
                     include ("Conexao.php");
-                    $seleciona=mysqli_query(abrirBanco(), "select id,nome,email, telefone from contato ");
+                    $seleciona=mysqli_query(abrirBanco(), "SELECT con.*, cid.nomeCidade, cid.uf  FROM contato con INNER JOIN cidades cid on con.cidade = cid.id ORDER BY nomeCidade ");
                     while($campo=mysqli_fetch_array($seleciona)){?>                  
                         <tr>
                             <td> <?=$campo["id"]?></td>
                             <td> <?=$campo["nome"]?></td>
                             <td>  <?=$campo["email"]?></td>
                             <td>  <?=$campo["telefone"]?></td>
+                            <td>  <?=$campo["nomeCidade"]?></td>
+                            <td>  <?=$campo["uf"]?></td>
                             </tr>
                     <?php }?>
                 </tbody>
