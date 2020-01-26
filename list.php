@@ -24,13 +24,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Lorem Ipsum</td>
-                        <td>example@gmail</td>
-                        <td>(99) 99999-9999</td>
-                        <td>Cidade / Estado</td>
-                    </tr>
+                 <?php
+                    include ("Conexao.php");
+                    $seleciona=mysqli_query(abrirBanco(), "select id,nome,email, telefone from contato ");
+                    while($campo=mysqli_fetch_array($seleciona)){?>                  
+                        <tr>
+                            <td> <?=$campo["id"]?></td>
+                            <td> <?=$campo["nome"]?></td>
+                            <td>  <?=$campo["email"]?></td>
+                            <td>  <?=$campo["telefone"]?></td>
+                            </tr>
+                    <?php }?>
                 </tbody>
             </table>
         </div>
