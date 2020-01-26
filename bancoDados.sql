@@ -23,18 +23,18 @@
 # Dump of table cidades
 # ------------------------------------------------------------
 
+CREATE DATABASE bancoDados; 
+
 DROP TABLE IF EXISTS `cidades`;
 
-CREATE TABLE `cidades` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL DEFAULT '',
-  `uf` char(2) NOT NULL DEFAULT ''
+CREATE TABLE cidades (
+  id int(11) primary key,
+  nomeCidade varchar(255) NOT NULL DEFAULT '',
+  uf char(2) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `cidades` WRITE;
-/*!40000 ALTER TABLE `cidades` DISABLE KEYS */;
 
-INSERT INTO `cidades` (`id`, `nome`, `uf`)
+INSERT INTO `cidades` (`id`, `nomeCidade`, `uf`)
 VALUES
 	(1100015,'Alta Floresta D\'Oeste','RO'),
 	(1100023,'Ariquemes','RO'),
@@ -5606,10 +5606,16 @@ VALUES
 	(5222203,'Vila Boa','GO'),
 	(5222302,'Vila Propício','GO'),
 	(5300108,'Brasília','DF');
-
-/*!40000 ALTER TABLE `cidades` ENABLE KEYS */;
-UNLOCK TABLES;
-
+	
+    CREATE TABLE contato(
+    id int Primary key auto_increment,
+    nome varchar(64) NOT NULL,
+    email varchar(64) UNIQUE NOT NULL, 
+    telefone varchar(32) NOT NULL, 
+    cidade int(11) , 
+    info varchar(300),
+	CONSTRAINT fk_cidade FOREIGN KEY (cidade) REFERENCES cidades(id)
+    );
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
