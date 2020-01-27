@@ -25,8 +25,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                 <?php
-                /* Aqui foi onde mudou */
+                 <?php    
                     include ("Conexao.php");
                     $seleciona=mysqli_query(abrirBanco(), "select con.*, cid.nomeCidade, cid.uf  from contato con inner join cidades cid on con.cidade = cid.id order by nomeCidade ");
                     while($campo=mysqli_fetch_array($seleciona)){?>                  
