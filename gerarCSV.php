@@ -3,6 +3,7 @@ include("Conexao.php");
 
 $all = selectAllData();
 
+/*"$arqexcel" Seleciona cada linha das tabelas e as insere ordenadamente em uma tabala */
 $arqexcel = "<meta charset='UTF-8'>";
 
 $arqexcel .= "<table class='table'>
@@ -17,7 +18,7 @@ $arqexcel .= "<table class='table'>
                 </thead>
                 <tbody>";
                  
-                /* Aqui foi onde mudou */
+                
                     include ("Conexao.php");
                     $seleciona=mysqli_query(abrirBanco(), "select con.*, cid.nomeCidade, cid.uf  from contato con inner join cidades cid on con.cidade = cid.id order by nomeCidade ");
                     while($campo=mysqli_fetch_array($seleciona)){                  
@@ -33,7 +34,7 @@ $arqexcel .= "<table class='table'>
                $arqexcel .=" </tbody>
             </table>";
                
+               //Cria um arquivo chamado relatorio.xls com as informações contidas em $arqexcel
                header("Content-Type: application/xls");
                header("Content-Disposition:attachment; filename = relatorio.xls");
                echo $arqexcel;
-        
