@@ -1,10 +1,13 @@
 <?php
+//função faz conexao com o banco de dados
 if(!function_exists('abrirBanco')) {
     function abrirBanco() {
     $conexao=mysqli_connect("localhost", "root", "", "bancoDados");
     return $conexao;
     }
 }
+
+//Função utilizada somente para selecionar as informações dos usuarios e retorna-las
 if(!function_exists('selectAllData')) {
     function selectAllData() {
      $banco = abrirBanco();
